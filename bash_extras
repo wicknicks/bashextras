@@ -15,8 +15,13 @@ alias ga='git add'
 alias gd='git diff'
 alias gs='git status'
 alias gp='git pull origin'
+alias gbr="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)~ %(authorname)~ (%(color:green)%(committerdate:relative)%(color:reset))~ %(contents:subject)' | column -t -s '~'"
+
 alias f='find . -name '
 
 export PATH=$PATH:/home/arjun/Tools/jdk1.8/bin/
 export PATH=$PATH:/home/arjun/Tools/maven/bin/
 
+function calc() {
+	echo $* | sed 's/,//g' | bc -l
+}
